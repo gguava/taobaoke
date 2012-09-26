@@ -1,7 +1,26 @@
 <?php
+include_once "app/lib/rb.php";
+R::setup('mysql:host=127.0.0.1;dbname=taobaoke',
+'root','');
+
 header("Content-type: text/html; charset=utf-8");
 echo $_GET['k'];
 $keyword=$_GET['k'];
+
+
+$keywords = R::find('Keyword','k="'.$keyword.'"');
+
+if( count($keywords) >0){
+	echo "该关键词已使用";
+	exit();
+}
+$KeywordObj = R::dispense('Keyword');
+$KeywordObj->k=$keyword;
+R::store($KeywordObj);
+echo "<br>id:"."<a href=http://localhost/tbk/items/show_itmes/".$KeywordObj->id.".html target=_blank>goooooooo</a>";
+
+
+
 include_once "app/lib/tbksdk/TopSdk.php";
 $c = new TopClient;
 $c->appkey = "21152817";
@@ -12,9 +31,7 @@ $req->setKeyword($keyword);
 $req->setStartTotalnum("5000");
 $resp = $c->execute($req);
 //print_r($resp);
-include_once "app/lib/rb.php";
-R::setup('mysql:host=127.0.0.1;dbname=taobaoke',
-'root','');
+
 
 // $TaobaokeItem->click_url="hshs";
 // $TaobaokeItem->commission="333.33";
@@ -35,7 +52,7 @@ for($i=0;$i<$items->length;$i++){
 		$TaobaokeItem->$nodename=$nodevalue;
 		echo "<br>";
 	}
-	$TaobaokeItem->keyword=$keyword;
+	$TaobaokeItem->keyword=$KeywordObj->id;
 	R::store($TaobaokeItem);
 	echo "</p>";
 }

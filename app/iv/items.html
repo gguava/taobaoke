@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><!--{$title}--></title>
+
+<link href="<!--{$baseurl}-->assets/yaml/core/base.css" rel="stylesheet"
+	type="text/css" />
+<link href="<!--{$baseurl}-->assets/yaml/screen/typography.css"
+	rel="stylesheet" type="text/css" />
+<link href="<!--{$baseurl}-->assets/yaml/forms/gray-theme.css"
+	rel="stylesheet" type="text/css" />
+<!--[if lte IE 7]>
+            <link href="<!--{$baseurl}-->
+assets/yaml/core/iehacks.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+            </script>
+        <![endif]-->
+<link href="<!--{$baseurl}-->assets/style.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript">
+function goto($o){
+	window.open("http://s.click.taobao.com/t?e="+$o);
+	/* window.location.href="http://s.click.taobao.com/t?e="+$o; */
+	/* alert("http://s.click.taobao.com/t?e="+$o); */
+}
+</script>
+
+</head>
+<body style="background-image: url(http://s.mogujie.cn/img/bg-v3.png);">
+	<script type="text/javascript"> 
+alimama_pid="mm_16491655_3345898_10878295"; 
+alimama_width=950; 
+alimama_height=90; 
+</script> 
+<script src="http://a.alimama.cn/inf.js" type="text/javascript"> 
+</script>
+<br>
+<div>
+	<!--{foreach from=$itemsArray item=item}-->
+		<div style="float:left;width:280px;padding:20px;display: block; height:380px;">
+			<a onclick="goto('<!--{$item["click_url"]}-->')" target="_blank">
+				<img width=260px src='<!--{$item["pic_url"]}-->' >
+				<br>
+				<img src=http://www.mogujie.com/img/taobao.gif width=16px height=16px><!--{$item["title"]}-->
+				<br>				
+			</a>
+			<span style="color:white;background-color: #FF6600;font-size:16px;padding:0 3px">￥<!--{$item["price"]}--> 去淘宝购买</span>
+				
+		</div>
+
+	<!--{/foreach}-->
+	</div>
+	<div style="clear:both;">
+	<script language="javascript" type="text/javascript" src="http://js.users.51.la/14976182.js"></script>
+<noscript><a href="http://www.51.la/?14976182" target="_blank"><img alt="我要啦免费统计" src="http://img.users.51.la/14976182.asp" style="border:none" /></a></noscript>
+</div>
+</body>
+</html>

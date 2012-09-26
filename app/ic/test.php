@@ -28,4 +28,8 @@ class test{
 		$TaobaokeItem->commission="333.33";
 		R::store($TaobaokeItem);
 	}
+	public function t($is){
+		echo "s";
+		echo $is;
+	}
 }

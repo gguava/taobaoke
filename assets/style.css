@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+.ym-wrapper {
+	margin: 0 auto;
+	min-width: 760px;
+	max-width: 1020px;
+}
+
+.ym-col1 {
+	width: 15%;
+} /* left column */
+.ym-col2 {
+	width: 5%;
+	float: left;
+} /* right column */
+.ym-col3 {
+	width: auto;
+	margin: 0 0 0 15%;
+} /* center column */
